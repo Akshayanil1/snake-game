@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="effects.css">
+    <link rel="stylesheet" href="mobile.css">
+</head>
+<body>
+    <div id="game-container">
+        <div id="score">Score: 0</div>
+        <div id="instructions" class="overlay">
+            <h2>Snake Game</h2>
+            <p>Use Arrow Keys to move the snake</p>
+            <p>Collect food to grow and score points</p>
+            <p>Press P to Pause</p>
+            <button onclick="startGame()" class="start-button">Start Game</button>
+        </div>
+        <div id="pause-menu" class="overlay">
+            <h2>Game Paused</h2>
+            <button onclick="resumeGame()">Resume</button>
+            <button onclick="restartGame()">Restart</button>
+        </div>
+        <canvas id="game-canvas" width="400" height="400"></canvas>
+        <div id="game-over" class="overlay">
+            <h2>Game Over!</h2>
+            <p>Your score: <span id="final-score">0</span></p>
+            <button onclick="restartGame()">Play Again</button>
+        </div>
+        <div class="game-controls">
+            <button onclick="togglePause()">Pause</button>
+            <button onclick="resumeGame()">Resume</button>
+        </div>
+        <div class="mobile-controls">
+            <div class="d-pad">
+                <button class="up" onclick="handleMobileControl('ArrowUp')">↑</button>
+                <button class="left" onclick="handleMobileControl('ArrowLeft')">←</button>
+                <button class="right" onclick="handleMobileControl('ArrowRight')">→</button>
+                <button class="down" onclick="handleMobileControl('ArrowDown')">↓</button>
+            </div>
+        </div>
+    </div>
+    <script src="game.js"></script>
+</body>
+</html>

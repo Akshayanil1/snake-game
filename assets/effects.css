@@ -1,0 +1,99 @@
+/* Glowing effects and animations */
+.snake-segment {
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+    animation: snakeGlow 1.5s ease-in-out infinite alternate;
+}
+
+.food-item {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    animation: foodPulse 1s ease-in-out infinite;
+}
+
+/* Score increase animation */
+.score-pop {
+    animation: scorePop 0.3s ease-out;
+}
+
+/* Button hover effects */
+button {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease-out, height 0.6s ease-out;
+}
+
+button:active::after {
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+}
+
+/* Game over overlay animation */
+#game-over.overlay {
+    animation: fadeInScale 0.5s ease-out;
+}
+
+/* Keyframe Animations */
+@keyframes snakeGlow {
+    from {
+        box-shadow: 0 0 15px rgba(76, 175, 80, 0.5);
+    }
+    to {
+        box-shadow: 0 0 25px rgba(76, 175, 80, 0.8);
+    }
+}
+
+@keyframes foodPulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 30px rgba(255, 0, 0, 0.8);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+    }
+}
+
+@keyframes scorePop {
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+    50% {
+        transform: translateX(-50%) scale(1.2);
+    }
+    100% {
+        transform: translateX(-50%) scale(1);
+    }
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}

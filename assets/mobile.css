@@ -1,0 +1,98 @@
+/* Mobile-specific styles */
+.mobile-controls {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+.mobile-controls .d-pad {
+    display: grid;
+    grid-template-columns: repeat(3, 60px);
+    grid-template-rows: repeat(3, 60px);
+    gap: 5px;
+}
+
+.mobile-controls button {
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(76, 175, 80, 0.3);
+    color: white;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    backdrop-filter: blur(5px);
+    border: 2px solid rgba(76, 175, 80, 0.5);
+}
+
+.mobile-controls button:active {
+    background: rgba(76, 175, 80, 0.5);
+    transform: scale(0.95);
+}
+
+.mobile-controls .up {
+    grid-column: 2;
+    grid-row: 1;
+}
+
+.mobile-controls .left {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.mobile-controls .right {
+    grid-column: 3;
+    grid-row: 2;
+}
+
+.mobile-controls .down {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .mobile-controls {
+        display: block;
+        width: 100%;
+        max-width: 300px;
+        margin: 0 auto;
+    }
+
+    body {
+        padding: 10px;
+        overflow: hidden;
+        position: fixed;
+        width: 100%;
+        height: 100%;
+    }
+
+    #game-container {
+        margin-bottom: 180px;
+        max-width: 90vmin;
+    }
+
+    .overlay {
+        width: 85%;
+        min-width: unset;
+        padding: 20px;
+    }
+
+    .game-controls {
+        flex-direction: column;
+        gap: 10px;
+        bottom: 200px;
+    }
+
+    .game-controls button {
+        width: 120px;
+        margin: 0 auto;
+    }
+}
